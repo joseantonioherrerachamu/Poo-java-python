@@ -2,13 +2,16 @@
 Mi codigo de java  sobre la herencia y polimorfismo
 Un vendedor recibe un sueldo base mas un  10% extra por comision de sus ventas, el vendedor desea saber cuanto dinero obtendra por cocepto de comisiones por las tres ventas que realiza en el mes y el total que recibira en el mes tomando en cuenta su sueldo base por comision
 
-public abstract class Vendedor {
+
+    package ganancias;
+
+
+    public abstract class Vendedor {
     protected double sueldobase; //Variable que almacenará el sueldo base del empleado
     protected double tVentas; // Variable que almacenara las ventas totales que vendio el empleado
     protected double comisiones; // Variable que almacenará las comisiones equivalentes al 10% de las ventas
     protected double sueldoTotal; // Variable que almacenará el suelo total del Empleado o Vendedor
 
-package ganancias;
 
     //Método Constructor
     public Vendedor(double sueldoBase){
@@ -31,7 +34,7 @@ package ganancias;
     
     package ganancias;
     //Aplicación de la Herencia, esta clase hereda los metodos y atributos de las clase Padre(Vendedor)
-public class TrabajadorBimestral extends Vendedor{
+    public class TrabajadorBimestral extends Vendedor{
 
     //Atributos de la clase Hija
     private double venta1; // Variable que almacena la venta #1
@@ -59,9 +62,9 @@ public class TrabajadorBimestral extends Vendedor{
     }
 }
 
-package ganancias;
+    package ganancias;
 
-public class ventas {
+    public class ventas {
 
     public static void main(String args[]){
 
