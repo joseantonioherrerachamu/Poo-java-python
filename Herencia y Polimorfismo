@@ -1,0 +1,79 @@
+#Sueldo Base del Vendedor = Es dado directamente
+#Sueldo de Comisiones = Es el 10% del total de Ventas
+#Ventas = Es la sumatoria de las 3 ventas realizadas durante el mes
+    #Venta1 = Proporcionado Directamente
+    #Venta2 = Proporcionado Directamente
+    #Venta3 = Proporcionado Directamente
+#Sueldo Total = Suma del sueldo base y las comisiones de venta.
+
+class Vendedor(ABC):
+    #Atributos
+    _sueldoBase = float(0)
+    _ventas = float(0)
+    _comisiones = float(0)
+    _sueldoTotal = float(0)
+
+#Metodo Constructor
+    def _init_(self, sueldoBase):
+        self._sueldoBase = sueldoBase
+
+
+    @abstractmethod
+    def totalVentas(self):
+        pass
+
+    def calcularComisiones(self):
+        self._comisiones = (self._ventas * .10)
+
+    def calcularSueldoTotal(self):
+        self._sueldoTotal = self._sueldoBase + self._comisiones
+
+    def getSueldoTotal(self):
+        return print("Mi sueldo es de: $" + str(self._sueldoTotal))
+
+class PrimerVendedor(Vendedor):
+
+    def _init_(self, sueldoBase):
+        Vendedor._init_(self, sueldoBase)
+
+    def totalVentas(self, venta1, venta2, venta3):
+        self._ventas = venta1 + venta2 + venta3
+
+class SegundoVendedor(Vendedor):
+
+    def _init_(self, sueldoBase):
+        Vendedor._init_(self, sueldoBase)
+
+    def totalVentas(self, venta1, venta2, venta3, venta4, venta5):
+        self._ventas = venta1 + venta2 + venta3 + venta4 + venta5
+        
+        
+        rom ventas import *
+
+if _name_ == "_main_":
+
+    #Primer Vendedor tiene un sueldo Base de 3000
+    prueba1 = PrimerVendedor(3000)
+
+    #Segundo Vendedor tiene un sueldo base de 4000
+    prueba2 = SegundoVendedor(4000)
+
+    #Pasos para determinar el sueldo del Priner Vendedor
+    #Paso 1: Conocer cuanto vendio, es decir conocer el total de ventas.
+    prueba1.totalVentas(330, 800, 2000)
+
+    #Paso 2: Conocer las comisiones adquiridas por el total de Ventas.
+    prueba1.calcularComisiones()
+
+    #Paso 3: Conocer el Sueldo Total
+    prueba1.calcularSueldoTotal()
+
+    #Paso 4: Imprimir el Resultado
+    prueba1.getSueldoTotal()
+
+    print("\n")
+
+    prueba2.totalVentas(200, 400, 800, 1600, 3200)
+    prueba2.calcularComisiones()
+    prueba2.calcularSueldoTotal()
+    prueba2.getSueldoTotal()
